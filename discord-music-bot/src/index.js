@@ -9,10 +9,9 @@ const client = new Client({
 });
 
 const distube = new DisTube(client, {
-  plugins: [new YtDlpPlugin()],
-  leaveOnStop: true,
-  leaveOnEmpty: true,
-  leaveOnFinish: false
+plugins: [new YtDlpPlugin()],
+leaveOnEmpty: true,
+leaveOnFinish: false
 });
 
 // Eventos básicos
