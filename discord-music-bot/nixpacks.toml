@@ -1,1 +1,17 @@
+[phases.setup]
+nixPkgs = [
+  'nodejs_22',
+  'python3',
+  'ffmpeg',
+  'pkg-config',
+  'libopus',
+  'libsodium'
+]
 
+[phases.install]
+cmds = [
+  'npm ci --omit=dev'
+]
+
+[start]
+cmd = 'npm start'
