@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits } = require("discord.js");
 const { DisTube } = require("distube");
-const ffmpegPath = require("ffmpeg-static");
+const { default: FFmpeg } = require("@distube/ffmpeg"); // plugin oficial
 
 const client = new Client({
   intents: [
@@ -11,9 +11,9 @@ const client = new Client({
   ]
 });
 
-// Configuração do DisTube com ffmpeg-static
+// Configuração do DisTube com plugin de FFmpeg
 const distube = new DisTube(client, {
-  ffmpeg: ffmpegPath,
+  plugins: [new FFmpeg()],
   emitNewSongOnly: true,
   leaveOnFinish: true,
   leaveOnEmpty: true
@@ -24,7 +24,7 @@ client.once("ready", () => {
   console.log(`🤖 Bot logado como ${client.user.tag}`);
 });
 
-// Comando simples de play
+// Comandos simples
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
@@ -63,7 +63,7 @@ client.on("messageCreate", async (message) => {
   }
 });
 
-// Eventos do DisTube
+// Eventos do player
 distube
   .on("playSong", (queue, song) =>
     queue.textChannel.send(`🎶 Tocando agora: \`${song.name}\``)
