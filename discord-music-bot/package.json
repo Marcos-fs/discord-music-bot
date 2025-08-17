@@ -1,21 +1,19 @@
 {
   "name": "discord-music-bot",
   "version": "1.0.0",
-  "description": "Bot de música para Discord com interface web",
+  "description": "Bot de música Discord",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js"
   },
   "engines": {
-    "node": ">=20"
+    "node": "22.x"
   },
   "dependencies": {
-    "discord.js": "14.15.3",
+    "discord.js": "14.14.0",
     "distube": "5.0.7",
     "@distube/yt-dlp": "2.0.1",
     "@discordjs/voice": "0.18.0",
-    "express": "4.19.2",
-    "cors": "2.8.5",
-    "dotenv": "16.4.5"
+    "dotenv": "^16.3.1"
   }
 }
